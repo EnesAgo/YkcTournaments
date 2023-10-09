@@ -1,8 +1,60 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import '../styles/styles.css'
+
+import { collection, onSnapshot, addDoc } from "firebase/firestore";
+
+import firebaseInnitData from "../firebaseInnit";
+
 function Stats() {
+
+    const [stats, setStats] = useState(false);
+
+    const { db } = firebaseInnitData;
+
+    const colletionRef = collection(db, "stats");
+
+    async function AddDoc(){
+        try {
+            const docRef = await addDoc(colletionRef, {
+                    teamName: "WARRIORS",
+                    playedGames: 0,
+                    wonGames: 0,
+                    drewGames: 0,
+                    lostGames: 0,
+                    points: 0
+
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+    }
+    async function GetDocs(){
+
+        const unsub = onSnapshot(colletionRef, (querySnapshot) => {
+            const items = [];
+            querySnapshot.forEach((doc) => {
+                items.push({docId: doc.id, ...doc.data()});
+            });
+
+            items.sort((a, b) => {
+                return b.points - a.points;
+            });
+
+            setStats(items)
+            console.log(items)
+        });
+    }
+
+    useEffect(() => {
+        GetDocs()
+    }, [])
+
+
     return(
         <section className="stats">
+            {/*<button onClick={() => {AddDoc()}}><h1>ADD DOC</h1></button>*/}
+
             <header>
                 <h2>Stats</h2>
             </header>
@@ -27,26 +79,33 @@ function Stats() {
                         <h3>P</h3>
                     </div>
                 </li>
-                <li>
-                    <div className="team">
-                        <h3>1 Voska Sport</h3>
-                    </div>
-                    <div>
-                        <h3>1</h3>
-                    </div>
-                    <div>
-                        <h3>1</h3>
-                    </div>
-                    <div>
-                        <h3>0</h3>
-                    </div>
-                    <div>
-                        <h3>0</h3>
-                    </div>
-                    <div className="points">
-                        <h3>3</h3>
-                    </div>
-                </li>
+                {
+                    stats ?
+                    stats.map((element, index) => (
+                        <li key={index}>
+                            <div className="team">
+                                <h3>{index+1} {element.teamName}</h3>
+                            </div>
+                            <div>
+                                <h3>{element.playedGames}</h3>
+                            </div>
+                            <div>
+                                <h3>{element.wonGames}</h3>
+                            </div>
+                            <div>
+                                <h3>{element.drewGames}</h3>
+                            </div>
+                            <div>
+                                <h3>{element.lostGames}</h3>
+                            </div>
+                            <div className="points">
+                                <h3>{element.points}</h3>
+                            </div>
+                        </li>
+                    )) :
+                    <h2>loading...</h2>
+                }
+
             </ul>
         </section>
     )
