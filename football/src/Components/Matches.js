@@ -76,7 +76,7 @@ function Matches() {
                                 </section>
                                 <section className="date">
                                     <h4>{element.date}</h4>
-                                    <h4>({element.day && element.day} Tuesday)</h4>
+                                    <h4>({element.day && element.day})</h4>
                                 </section>
                             </li>
                         )) :
