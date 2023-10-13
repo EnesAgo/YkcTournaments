@@ -21,6 +21,7 @@ function Stats() {
                     wonGames: 0,
                     drewGames: 0,
                     lostGames: 0,
+                    goals: 0,
                     points: 0
 
             });
@@ -38,7 +39,7 @@ function Stats() {
             });
 
             items.sort((a, b) => {
-                return b.points - a.points;
+                return b.points - a.points || b.goals - a.goals;
             });
 
             setStats(items)
@@ -75,6 +76,9 @@ function Stats() {
                     <div>
                         <h3>L</h3>
                     </div>
+                    <div>
+                        <h3>G</h3>
+                    </div>
                     <div className="points">
                         <h3>P</h3>
                     </div>
@@ -97,6 +101,9 @@ function Stats() {
                             </div>
                             <div>
                                 <h3>{element.lostGames}</h3>
+                            </div>
+                            <div>
+                                <h3>{element.goals}</h3>
                             </div>
                             <div className="points">
                                 <h3>{element.points}</h3>

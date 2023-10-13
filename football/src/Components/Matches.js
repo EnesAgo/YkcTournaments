@@ -23,7 +23,8 @@ function Matches() {
                 teamOneWon: false,
                 teamTwoWon: false,
                 date: "24.10.2023",
-                played: false
+                played: false,
+                day: "Tuesday"
 
             });
             console.log("Document written with ID: ", docRef.id);
@@ -75,6 +76,7 @@ function Matches() {
                                 </section>
                                 <section className="date">
                                     <h4>{element.date}</h4>
+                                    <h4>({element.day && element.day} Tuesday)</h4>
                                 </section>
                             </li>
                         )) :
