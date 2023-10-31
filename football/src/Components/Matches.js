@@ -23,6 +23,7 @@ function Matches() {
                 teamOneWon: false,
                 teamTwoWon: false,
                 date: "24.10.2023",
+                orderNum: 11,
                 played: false,
                 day: "Tuesday"
 
@@ -40,8 +41,12 @@ function Matches() {
                 items.push({docId: doc.id, ...doc.data()});
             });
 
+            // items.sort((a, b) => {
+            //     return parseInt(b.date.split(".")[0]) - parseInt(a.date.split(".")[0]);
+            // });
+
             items.sort((a, b) => {
-                return parseInt(b.date.split(".")[0]) - parseInt(a.date.split(".")[0]);
+                return parseInt(b.orderNum) - parseInt(a.orderNum);
             });
 
             setMatches(items.reverse())
