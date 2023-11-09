@@ -23,7 +23,7 @@ function App() {
       <div className="line"></div>
 
       <div className="matchesDiv">
-          <Matches />
+          {/*<Matches />*/}
       </div>
 
       <div className="matchesDiv" style={{paddingBottom: "20px"}}>
