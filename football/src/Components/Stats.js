@@ -11,11 +11,12 @@ function Stats() {
 
     const { db } = firebaseInnitData;
 
-    const colletionRef = collection(db, "stats");
+    // const colletionRef23_24 = collection(db, "stats");
+    const colletionRef24_25 = collection(db, "stats2425");
 
     async function AddDoc(){
         try {
-            const docRef = await addDoc(colletionRef, {
+            const docRef = await addDoc(colletionRef24_25, {
                     teamName: "WARRIORS",
                     playedGames: 0,
                     wonGames: 0,
@@ -32,7 +33,7 @@ function Stats() {
     }
     async function GetDocs(){
 
-        const unsub = onSnapshot(colletionRef, (querySnapshot) => {
+        const unsub = onSnapshot(colletionRef24_25, (querySnapshot) => {
             const items = [];
             querySnapshot.forEach((doc) => {
                 items.push({docId: doc.id, ...doc.data()});

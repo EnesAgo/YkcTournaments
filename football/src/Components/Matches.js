@@ -11,11 +11,12 @@ function Matches() {
 
     const { db } = firebaseInnitData;
 
-    const colletionRef = collection(db, "matches");
+    // const colletionRef23_24 = collection(db, "matches");
+    const colletionRef24_25 = collection(db, "matches2425");
 
     async function AddDoc(){
         try {
-            const docRef = await addDoc(colletionRef, {
+            const docRef = await addDoc(colletionRef24_25, {
                 teamOneName: "FC VOSKA",
                 teamTwoName: "PROFAT",
                 teamOneScore: 0,
@@ -35,7 +36,7 @@ function Matches() {
     }
     async function GetDocs(){
 
-        const unsub = onSnapshot(colletionRef, (querySnapshot) => {
+        const unsub = onSnapshot(colletionRef24_25, (querySnapshot) => {
             const items = [];
             querySnapshot.forEach((doc) => {
                 items.push({docId: doc.id, ...doc.data()});

@@ -10,17 +10,21 @@ function App() {
     return (
     <>
       <div className="title section">
-        <h1>YKC FOOTBALL TOURNAMENT 2023/24</h1>
+        <h1>YKC FOOTBALL TOURNAMENT 2024/35</h1>
         <h3 style={{color: "rgba(255, 255, 255, 0.7)"}}>made by <a href="https://www.instagram.com/agoenes/" style={{color: "#fff"}}>@agoenes</a></h3>
       </div>
 
       <div className="line"></div>
 
-      <div className="statsDiv">
-          <Stats />
-      </div>
+      {/*<div className="statsDiv">*/}
+      {/*    <Stats />*/}
+      {/*</div>*/}
 
-      <div className="line"></div>
+        <br/><br/>
+        <h1 style={{textAlign:"center"}}>Coming Soon</h1>
+        <br/><br/>
+
+      {/*<div className="line"></div>*/}
 
       <div className="matchesDiv">
           {/*<Matches />*/}
