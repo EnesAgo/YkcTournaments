@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import '../styles/styles.css'
 
-import { collection, onSnapshot, addDoc } from "firebase/firestore";
+import { collection, onSnapshot, addDoc, setDoc, doc } from "firebase/firestore";
 
 import firebaseInnitData from "../firebaseInnit";
 
@@ -16,9 +16,12 @@ function Matches() {
 
     async function AddDoc(){
         try {
-            const docRef = await addDoc(colletionRef24_25, {
-                teamOneName: "FC VOSKA",
-                teamTwoName: "PROFAT",
+
+            const docID = "TEAMD vs TEAMB";
+
+            const docRef = await setDoc(doc(colletionRef24_25, docID), {
+                teamOneName: "TEAM D",
+                teamTwoName: "TEAM B",
                 teamOneScore: 0,
                 teamTwoScore: 0,
                 teamOneWon: false,
@@ -29,6 +32,20 @@ function Matches() {
                 day: "Tuesday"
 
             });
+
+            // const docRef = await addDoc(colletionRef24_25, {
+            //     teamOneName: "FC VOSKA",
+            //     teamTwoName: "PROFAT",
+            //     teamOneScore: 0,
+            //     teamTwoScore: 0,
+            //     teamOneWon: false,
+            //     teamTwoWon: false,
+            //     date: "24.10.2023",
+            //     orderNum: 11,
+            //     played: false,
+            //     day: "Tuesday"
+            //
+            // });
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {
             console.error("Error adding document: ", e);

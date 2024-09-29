@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import '../styles/styles.css'
 
-import { collection, onSnapshot, addDoc } from "firebase/firestore";
+import { collection, onSnapshot, addDoc, setDoc, doc } from "firebase/firestore";
 
 import firebaseInnitData from "../firebaseInnit";
 
@@ -16,16 +16,29 @@ function Stats() {
 
     async function AddDoc(){
         try {
-            const docRef = await addDoc(colletionRef24_25, {
-                    teamName: "WARRIORS",
-                    playedGames: 0,
-                    wonGames: 0,
-                    drewGames: 0,
-                    lostGames: 0,
-                    goals: 0,
-                    points: 0
 
+            const TeamName = "TEAM D";
+
+            const docRef = await setDoc(doc(colletionRef24_25, TeamName), {
+                teamName: TeamName,
+                playedGames: 0,
+                wonGames: 0,
+                drewGames: 0,
+                lostGames: 0,
+                goals: 0,
+                points: 0
             });
+
+            // const docRef = await addDoc(colletionRef24_25, {
+            //         teamName: "TEAM A",
+            //         playedGames: 0,
+            //         wonGames: 0,
+            //         drewGames: 0,
+            //         lostGames: 0,
+            //         goals: 0,
+            //         points: 0
+            //
+            // });
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {
             console.error("Error adding document: ", e);

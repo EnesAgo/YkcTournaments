@@ -16,18 +16,18 @@ function App() {
 
       <div className="line"></div>
 
-      {/*<div className="statsDiv">*/}
-      {/*    <Stats />*/}
-      {/*</div>*/}
+      <div className="statsDiv">
+          <Stats />
+      </div>
 
-        <br/><br/>
-        <h1 style={{textAlign:"center"}}>Coming Soon</h1>
-        <br/><br/>
+        {/*<br/><br/>*/}
+        {/*<h1 style={{textAlign:"center"}}>Coming Soon</h1>*/}
+        {/*<br/><br/>*/}
 
-      {/*<div className="line"></div>*/}
+      <div className="line"></div>
 
       <div className="matchesDiv">
-          {/*<Matches />*/}
+          <Matches />
       </div>
 
       <div className="matchesDiv" style={{paddingBottom: "20px"}}>
