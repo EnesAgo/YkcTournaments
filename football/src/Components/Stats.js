@@ -17,7 +17,7 @@ function Stats() {
     async function AddDoc(){
         try {
 
-            const TeamName = "TEAM D";
+            const TeamName = "ILLYRYIANS";
 
             const docRef = await setDoc(doc(colletionRef24_25, TeamName), {
                 teamName: TeamName,

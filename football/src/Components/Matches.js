@@ -17,17 +17,17 @@ function Matches() {
     async function AddDoc(){
         try {
 
-            const docID = "TEAMD vs TEAMB";
+            const docID = "DEMIR HISAR vs ILLYRINS";
 
             const docRef = await setDoc(doc(colletionRef24_25, docID), {
-                teamOneName: "TEAM D",
-                teamTwoName: "TEAM B",
+                teamOneName: "DEMIR HISAR",
+                teamTwoName: "ILLYRINS",
                 teamOneScore: 0,
                 teamTwoScore: 0,
                 teamOneWon: false,
                 teamTwoWon: false,
-                date: "24.10.2023",
-                orderNum: 11,
+                date: "08.10.2024",
+                orderNum: 6,
                 played: false,
                 day: "Tuesday"
 
@@ -79,7 +79,7 @@ function Matches() {
 
     return(
         <section className="matches">
-            {/*<button onClick={() => {AddDoc()}}><h1>ADD DOC</h1></button>*/}
+            <button onClick={() => {AddDoc()}}><h1>ADD DOC</h1></button>
 
             <header>
                 <h2>Matches</h2>
