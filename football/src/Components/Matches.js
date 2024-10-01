@@ -79,7 +79,7 @@ function Matches() {
 
     return(
         <section className="matches">
-            <button onClick={() => {AddDoc()}}><h1>ADD DOC</h1></button>
+            {/*<button onClick={() => {AddDoc()}}><h1>ADD DOC</h1></button>*/}
 
             <header>
                 <h2>Matches</h2>
